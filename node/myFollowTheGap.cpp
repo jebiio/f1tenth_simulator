@@ -58,7 +58,7 @@ public:
     // get topic names
     std::string drive_topic, odom_topic, scan_topic;
 
-    n.getParam("drive_topic", drive_topic);
+    n.getParam("new_drive_topic", drive_topic);
     n.getParam("odom_topic", odom_topic);
     n.getParam("scan_topic", scan_topic);
 
