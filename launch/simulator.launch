@@ -37,7 +37,7 @@
 
   <!-- ***Put launch command for new planner here:-->
   <!-- Launch the New Planner Node -->
-  <node pkg="f1tenth_simulator" name="myPlanner1" type="myPlanner1" output="screen">
+  <node pkg="f1tenth_simulator" name="myUVA" type="myUVA.py" >
     <rosparam command="load" file="$(find f1tenth_simulator)/params.yaml"/>
   </node>   
 
