@@ -9,6 +9,8 @@ import math
 from std_msgs.msg import Float64
 from sensor_msgs.msg import LaserScan
 from ackermann_msgs.msg import AckermannDriveStamped
+import os
+
 
 # steering_publisher = rospy.Publisher(
 #     'high_level/ackermann_cmd_mux/input/nav_0', AckermannDriveStamped, queue_size=1)
@@ -294,7 +296,6 @@ def laser_callback(data):
 	global kd
 	global kd_vel
 	global kp_vel
-	integral = 0.0
 	velocity = vel_input
 	angle = servo_offset
 	start_point,end_point = obs_decide(data)
@@ -352,13 +353,16 @@ def laser_callback(data):
 		dist = min_dist
 	vel = Float64()
 	vel.data = min_vel + (dist/(max_dist - min_dist))*(max_vel - min_vel)
+	print ("Speed : ", vel.data)
 
 	ack_msg = AckermannDriveStamped()
 	ack_msg.header.stamp = rospy.Time.now()
 	# ack_msg.header.frame_id = 'your_frame_here'
-	ack_msg.drive.steering_angle = steer.data
+	ack_msg.drive.steering_angle = steer.data * (0.34/100)
 	ack_msg.drive.speed = vel.data
 	steering_publisher.publish(ack_msg)
+	os.system('clear')
+	
 
 if __name__ == '__main__':
 	rospy.init_node('myUVA')
