@@ -37,9 +37,9 @@
 
   <!-- ***Put launch command for new planner here:-->
   <!-- Launch the New Planner Node -->
-  <node pkg="f1tenth_simulator" name="myCon" type="manhattan_control.py" >
+  <!-- <node pkg="f1tenth_simulator" name="myNode1" type="manhattan_control.py" >
     <rosparam command="load" file="$(find f1tenth_simulator)/params.yaml"/>
-  </node>   
+  </node>    -->
 
   
   <!-- Launch RVIZ -->
