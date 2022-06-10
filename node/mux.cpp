@@ -129,6 +129,11 @@ public:
         // n.getParam("new_drive_topic", new_drive_topic);
         // n.getParam("new_mux_idx", new_mux_idx);
         // add_channel(new_drive_topic, drive_topic, new_mux_idx);
+        int new_mux_idx;
+        std::string new_drive_topic;
+        n.getParam("new_drive_topic", new_drive_topic);
+        n.getParam("new_mux_idx", new_mux_idx);
+        add_channel(new_drive_topic, drive_topic, new_mux_idx);
     }
 
     void add_channel(std::string channel_name, std::string drive_topic, int mux_idx_) {

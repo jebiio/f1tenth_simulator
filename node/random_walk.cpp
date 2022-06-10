@@ -24,6 +24,7 @@ private:
 
     // Listen for odom messages
     ros::Subscriber odom_sub;
+    ros::Subscriber laser_sub;
 
     // Publish drive data
     ros::Publisher drive_pub;
